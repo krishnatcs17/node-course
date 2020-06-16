@@ -7,7 +7,7 @@ module.exports = {
     addPost(req, res) {
         let postId = req.store.posts.length
         req.store.posts.push(req.body)
-        res.status(201).send({postId: postId})
+        res.status(201).send({postId: postId, postName: req.body.name, desc: req.body.text})
     },
 
     updatePost(req, res) {

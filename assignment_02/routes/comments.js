@@ -6,16 +6,14 @@ module.exports = {
     addComment(req, res) {
         // let postId = req.params.postId
         let comments = []
-        if(req.store.posts[req.params.postId].comments) {
-            comments = req.store.posts[req.params.postId].comments
-        }
-        else {
+        if(!req.store.posts[req.params.postId].comments) {
             req.store.posts[req.params.postId]["comments"] = []
-            comments = req.store.posts[req.params.postId].comments
         }
+
+        comments = req.store.posts[req.params.postId].comments
         let commentId = comments.length
         comments.push(req.body)
-        res.status(201).send({postId: req.params.postId, commentId: commentId})        
+        res.status(201).send({postId: req.params.postId, commentId: commentId, comment: req.body.text})        
     },
 
     updateComment(req, res) {
@@ -25,6 +23,6 @@ module.exports = {
 
     deleteComment(req, res) {
         req.store.posts[req.params.postId].comments.splice(req.params.commentId, 1)
-        res.status(204).send({postId: req.params.postId, commentId: req.params.commentId})
+        res.status(204).send({postId: req.params.postId, commentId: req.params.commentId, deleted: true})
     }
 }
