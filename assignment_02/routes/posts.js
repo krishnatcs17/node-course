@@ -1,5 +1,6 @@
 module.exports = {
     getPosts(req, res){
+        if(req.query.postId) return res.status(200).send(req.store.posts[req.query.postId])
         res.status(200).send(req.store.posts)
     },
 
@@ -16,6 +17,6 @@ module.exports = {
 
     deletePost(req, res) {
         req.store.posts.splice(req.params.postId, 1)
-        res.status(204).send({postId: req.params.postId}, " deleted")
+        res.status(204).send({postId: req.params.postId})
     }
 }

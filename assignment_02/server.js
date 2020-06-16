@@ -10,11 +10,11 @@ app.use(logger('dev'));
 let store = {
     posts: [
         {
-            name: 'Top 10 ES6 Features every Web Developer must know',
-            url: 'https://webapplog.com/es6',
-            text: 'This essay will give you a quick introduction to ES6. If you don’t know what is ES6, it’s a new JavaScript implementation.',
+            name: 'This is post heading',
+            url: 'https://github.com/',
+            text: 'This is the post description',
             comments: [
-                {text: 'Cruel…..var { house, mouse} = No type optimization at all'}    
+                {text: 'This is the comment-1 for post-1'}    
             ]
         }
     ]

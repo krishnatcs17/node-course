@@ -25,6 +25,6 @@ module.exports = {
 
     deleteComment(req, res) {
         req.store.posts[req.params.postId].comments.splice(req.params.commentId, 1)
-        res.status(204).send({postId: req.params.postId, commentId: req.params.commentId}, " deleted")
+        res.status(204).send({postId: req.params.postId, commentId: req.params.commentId})
     }
 }
